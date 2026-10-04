@@ -1,0 +1,26 @@
+{
+  "generator": "Built-in image_gen tool",
+  "final_assets": {
+    "bg0": "livearea.png: adjusted workshop background",
+    "pic0": "splash.png: original generated workshop background",
+    "icon0": "User-provided Amazing_Alex_App_Icon.webp; resized and PNG-8 encoded",
+    "startup": "User-provided another.jpg; resized and PNG-8 encoded"
+  },
+  "reference_directory": "liveareassetsnstiff",
+  "references": [
+    "big.jpg",
+    "amazing alex render.png",
+    "logo.webp"
+  ],
+  "prompts": [
+    {
+      "output": "source/splash.png",
+      "prompt": "Use case: compositing\nAsset type: finished background artwork for the PlayStation Vita LiveArea launcher for Amazing Alex HD.\nInput images: Image 1 is the official portrait poster and reference for the green chalkboard/workshop environment, palette, props, and cartoon rendering. Image 2 is the Alex character identity and full-body pose reference. Image 3 is the exact Amazing Alex title logo reference.\nPrimary request: Compose a polished wide landscape launcher background from these references. Make it feel like authentic Amazing Alex game artwork, with crisp clean 2D cartoon outlines, yellow hair, olive green clothes, warm orange-red highlights, green classroom chalkboard and a wooden workbench. Maintain Alex's distinctive face and proportions and the original logo lettering.\nComposition: target 1680 by 1000 pixels (aspect 1.68:1). Alex stands at the far left, smiling in the relaxed hands-in-pockets pose, completely visible from hair to shoes, occupying approximately x=45..510 and y=80..920. The large readable original Amazing Alex title is in the upper right, approximately x=750..1560 and y=80..335; no duplicate character attached to the logo. Keep the central rectangle x=560..1120, y=370..760 mostly clear green chalkboard, with only very faint chalk markings: the console places its own Start panel there. A slim wood workbench runs along the bottom. A red balloon at the far right and small rope, scissors, shelves and billiard-ball contraption details near the outside edges echo the poster, without crowding Alex, the title or the center.\nText (verbatim): \"Amazing Alex\" in the supplied original yellow Amazing / orange-red Alex logo style; the star over the i is part of the logo. No other words.\nConstraints: one continuous full-bleed landscape illustration, opaque. Flat finished asset, not a screenshot, collage, contact sheet or device mockup. Leave a safe outer margin around the complete title and character. No drawn buttons, no Start label, no UI panels, no PlayStation branding, no publisher badge, no added tagline, no watermark. The blank center should blend naturally into the chalkboard, not look like a cutout. Keep the recognizable original character and cheerful visual identity."
+    },
+    {
+      "output": "source/livearea.png",
+      "prompt": "Use case: precise-object-edit\nAsset type: final PlayStation Vita LiveArea background.\nEdit target: the supplied finished Amazing Alex workshop illustration.\nMake exactly one layout correction: reduce the existing Amazing Alex title logo and move it farther right. Keep the complete logo, including its star and shadow, entirely within x=70%..93% of the image width and y=7%..35% of image height. Preserve its aspect ratio, original yellow/red lettering and correct text \"Amazing Alex\". Fill its old area seamlessly with the existing green chalkboard texture.\nThe console's real Start panel will occupy x=33.33%..66.67% and y=27.8%..59.4%: that entire rectangle must remain clear green chalkboard.\nPreserve Alex, his face, full body, pose, size and position, the wooden workbench, the contraptions, balloon, props, drawing style, lighting, colors, texture and all other details exactly. Do not add any new artwork, labels or UI. Keep the same wide landscape aspect and resolution. Opaque full-bleed output."
+    }
+  ],
+  "formatting": "ImageMagick size and indexed-PNG conversions in scripts/prepare_livearea.ps1. Input artwork is retained unchanged. Layout preview simulates the console gate; it is not a screenshot."
+}

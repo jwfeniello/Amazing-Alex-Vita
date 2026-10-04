@@ -1,0 +1,21 @@
+build/
+dist/
+analysis/
+.tools/
+*.o
+*.a
+*.so
+*.apk
+*.vpk
+*.log
+*.elf
+*.psp2dmp
+*.dmp
+__pycache__/
+*.py[cod]
+.env
+.env.*
+/lib/vitagl/samples/
+
+# Only the reviewed, data-free installer is published.
+!releases/Amazing-Alex-Vita-v0.4.vpk

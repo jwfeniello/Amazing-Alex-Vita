@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.bmp binary
+*.pvr binary
+*.yuv binary
+*.mp4 binary
+*.vpk binary
+extras/urandom binary

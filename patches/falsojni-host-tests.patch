@@ -1,0 +1,42 @@
+--- a/FalsoJNI_ImplBridge.h
++++ b/FalsoJNI_ImplBridge.h
+@@ -152,7 +152,11 @@
+  * Helper macros / functions
+  */
+ 
++#ifdef FALSOJNI_HOST_TEST
++void *_AtoV(int dummy, ...);
++#else
+ va_list _AtoV(int dummy, ...);
++#endif
+ 
+ #define getFieldValueById(jtype, fieldtype, containertype, container, containersize, id, defaultval) ({ \
+   for (int i = 0; i < nameToFieldId_size() / sizeof(NameToFieldID); i++) { \
+--- a/FalsoJNI_ImplBridge.c
++++ b/FalsoJNI_ImplBridge.c
+@@ -18,6 +18,7 @@
+ 
+ #include <string.h>
+ #include <malloc.h>
++#include <stdlib.h>
+ #include <pthread.h>
+ 
+ #include "converter.h"
+@@ -368,6 +369,11 @@
+     return JNI_TRUE;
+ }
+ 
++#ifdef FALSOJNI_HOST_TEST
++/* ARM's va_list is a value type; x86-64 uses an array. Our host tests exercise
++   the game's actual variadic/V dispatch path, never this legacy A adapter. */
++void *_AtoV(int dummy, ...) { (void)dummy; abort(); }
++#else
+ va_list _AtoV(int dummy, ...) {
+     va_list args1;
+     va_start(args1, dummy);
+@@ -376,3 +382,5 @@
+     va_end(args1);
+     return args2;
+ }
++
++#endif
