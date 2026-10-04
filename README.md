@@ -4,12 +4,6 @@ This is a **heavily AI-assisted** port of the Android version of Amazing Alex
 HD **1.0.5** to PlayStation Vita. The loader runs the original ARMv7 game engine
 using vitaGL, so_util and a small Java compatibility layer.
 
-The menu, first-level gameplay, clean music and custom LiveArea artwork have
-been tested on a physical Vita. This is an early port; full-game completion
-has not been verified. Online features are disabled.
-
-**[Download the VPK (build 0.4)](https://github.com/jwfeniello/Amazing-Alex-Vita/raw/refs/heads/main/releases/Amazing-Alex-Vita-v0.4.vpk)**
-
 ![Amazing Alex launcher artwork](extras/livearea/bg0.png)
 
 You will need your own **Amazing Alex HD 1.0.5 Android APK**. The APK, original
@@ -60,10 +54,6 @@ without hashing or extracting the entire package on the Vita.
 - Development diagnostics go to `ux0:data/amazingalex/loader.log`. Frequent
   traces are disabled by default and the log is bounded.
 
-This is an early hardware-test build. Text entry, suspend/resume, complete save
-behavior, rendering edge cases and gameplay performance are not yet validated.
-Text entry currently has no Vita IME implementation. Two GLES point-rendering
-extension calls still use the inherited compatibility placeholders.
 
 ## Build and checks
 
@@ -105,24 +95,6 @@ applications for the development session.
 Do not run `stop` or `deploy` during a VitaShell transfer: the `destroy`
 command also closes VitaShell and interrupts its FTP server.
 
-## LiveArea artwork
-
-The launcher uses the supplied Amazing Alex icon and title artwork, plus a
-generated workshop background. Ready-to-package PNG-8 files and the offline
-LiveArea template are in `extras/livearea/`. Source masters and the built-in
-imagegen prompts are retained in `extras/livearea/source/`.
-
-On Windows with ImageMagick, `powershell -File scripts/prepare_livearea.ps1`
-encodes the four images and makes a layout preview in `analysis/livearea/`.
-`python scripts/package_livearea.py` updates an existing VPK while verifying
-that its working executable and metadata are preserved. Fresh builds include
-the same artwork through CMake.
-
-`python scripts/deploy_livearea.py --host VITA_IP` backs up existing artwork,
-updates only this title's installed artwork and shell cache, and stages the
-complete VPK at `ux0:/Amazing Alex HD.vpk`. It closes running applications.
-Close and reopen the old LiveArea page afterward. If the bubble retains the
-old icon, reinstall the staged VPK through VitaShell to refresh registration.
 
 ## Credits
 
